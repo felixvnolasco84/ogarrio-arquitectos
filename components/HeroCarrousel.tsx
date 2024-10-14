@@ -62,7 +62,7 @@ export default function HeroCarrousel() {
       <CarouselContent>
         {heroItems.map((item) => (
           <CarouselItem key={item.title}>
-            <Card className="relative h-svh w-svw rounded-none p-0">
+            <Card className="relative w-svw rounded-none p-0 lg:aspect-video xl:aspect-auto xl:h-svh">
               <div className="absolute bottom-0 left-0 z-50 h-svh w-svw bg-black/20" />
               <CardHeader className="absolute left-0 right-0 top-0 z-40 flex w-fit flex-col items-center justify-center p-12">
                 {/* <h1>OGARRIO ARQUITECTOS</h1> */}
@@ -70,7 +70,7 @@ export default function HeroCarrousel() {
               </CardHeader>
               <CardContent className="h-svh w-svw p-0">
                 <div className="flex h-svh w-svw flex-col items-center justify-center">
-                  <Image src={item.image.src} alt={item.title} fill />
+                  <Image src={item.image.src} alt={item.title} fill className="object-cover object-center" />
                 </div>
                 <CardFooter className="absolute bottom-0 left-0 right-0 z-50 flex w-fit flex-col items-start justify-start bg-transparent p-12 text-white">
                   <p className="text-2xl">{item.place}</p>
