@@ -1,10 +1,15 @@
 "use client";
 
 import { Metadata } from "next";
+import CDMXHEROIMAGE from "@/public/images/CCSJ_CAM04_AMENITIES_post.png";
+import LOSCABOSIMAGE from "@/public/images/CCSJ_CAM05_TERRAZA_post.png";
 import ProjectCard from "@/components/ProjectCard";
-import { projects } from "@/lib/utils";
 import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
+import HeroCarrousel from "@/components/HeroCarrousel";
+import AboutSection from "@/components/AboutSection";
+import { Project } from "@/lib/utils";
+import ProjectSection from "@/components/ProjectSection";
 
 // export async function generateMetadata(): Promise<Metadata> {
 //   return {
@@ -17,33 +22,103 @@ import { api } from "@/convex/_generated/api";
 //   };
 // }
 
-export interface Project {
-  name: string;
-  image: string;
-  description: string;
-  product: string;
-  servicio: string;
-  category: string;
-  ubicacion: string;
-  slug: string;
-  metaTitle: string;
-  metaDescription: string;
-}
+const projects = [
+  {
+    heroImage: CDMXHEROIMAGE,
+    title: "LARENA CAMPESTRE SAN JOSÉ",
+    place: "LOS CABOS",
+    description:
+      "We are a family-owned arquitecture firm based in México City. Since 2003, we have been committed to delivering timeless, quality developments that epitomize comfort and functionality.",
+    data: [
+      {
+        title: "Status",
+        description: "Completed",
+      },
+      {
+        title: "Address",
+        description: "Campestre San José",
+      },
+      {
+        title: "Project Completion",
+        description: "2023",
+      },
+      {
+        title: "Unit Types",
+        description: "4-bed, 3.5-baths",
+      },
+    ],
+    featureData: [
+      {
+        title: "1",
+        description: "Floor(s)",
+      },
+      {
+        title: "270",
+        description: "Unit Sizes in SQM",
+      },
+      {
+        title: "3",
+        description: "Units",
+      },
+    ],
+  },
+  {
+    heroImage: LOSCABOSIMAGE,
+    title: "LARENA CAMPESTRE SAN JOSÉ",
+    place: "LOS CABOS",
+    description:
+      "We are a family-owned arquitecture firm based in México City. Since 2003, we have been committed to delivering timeless, quality developments that epitomize comfort and functionality.",
+    data: [
+      {
+        title: "Status",
+        description: "Completed",
+      },
+      {
+        title: "Address",
+        description: "Campestre San José",
+      },
+      {
+        title: "Project Completion",
+        description: "2023",
+      },
+      {
+        title: "Unit Types",
+        description: "4-bed, 3.5-baths",
+      },
+    ],
+    featureData: [
+      {
+        title: "1",
+        description: "Floor(s)",
+      },
+      {
+        title: "270",
+        description: "Unit Sizes in SQM",
+      },
+      {
+        title: "3",
+        description: "Units",
+      },
+    ],
+  },
+];
 
 export default function Home() {
-  const projects = useQuery(api.project.getAll);
-
-  if (!projects) {
-    return <div>Loading...</div>;
-  }
-
   return (
-    <main className="relative flex flex-col gap-10 py-4 lg:gap-20">
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
+    <main className="relative flex flex-col gap-10 lg:gap-20">
+      <HeroCarrousel />
+      <AboutSection />
+
+      {projects.map((project, index) => (
+        <ProjectSection key={index} project={project} />
+      ))}
+
+      {}
+      {/* <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
         {projects.map((project) => (
           <ProjectCard key={project.slug} project={project} />
         ))}
-      </div>
+      </div> */}
     </main>
   );
 }

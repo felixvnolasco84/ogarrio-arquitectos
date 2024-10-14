@@ -1,5 +1,5 @@
-import { Project } from "@/app/page";
 import { type ClassValue, clsx } from "clsx";
+import { StaticImageData } from "next/image";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
@@ -29,21 +29,11 @@ export function formatCurrency(value: number): string {
   }).format(value);
 }
 
-export const projects: Project[] = [
-  {
-    name: "Hospital Angeles",
-    category: "hospitales",
-    product: "Vidrio insulado Sunglas, cancelería modular,",
-    servicio: "Suministro e instalación de cancelería y vidrio",
-    ubicacion:
-      "C. Bernardino del Razo 21, Ensueño, 76178 Santiago de Querétaro, Qro",
-    image:
-      "https://images.pexels.com/photos/18936031/pexels-photo-18936031/free-photo-of-restaurante-de-barbacoa-coreana.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-    description:
-      " Hospital Angeles, C. Bernardino del Razo 21, Ensueño, 76178 Santiago de Querétaro, Qro",
-    slug: "hospital-angeles",
-    metaTitle: "Hospital Angeles",
-    metaDescription:
-      "Hospital Angeles, C. Bernardino del Razo 21, Ensueño, 76178 Santiago de Querétaro, Qro",
-  },
-];
+export type Project = {
+  heroImage: StaticImageData;
+  title: string;
+  place: string;
+  description: string;
+  data: { title: string; description: string }[];
+  featureData: { title: string; description: string }[];
+};

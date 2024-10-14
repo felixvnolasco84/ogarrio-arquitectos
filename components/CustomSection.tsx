@@ -11,11 +11,11 @@ export default function CustomSection({
   return (
     <section
       className={cn(
-        "grid w-full items-center justify-center lg:space-y-12",
+        "grid w-full lg:space-y-12",
         className
       )}
     >
-      <div className="grid max-w-7xl justify-items-center gap-y-12">
+      <div className="grid gap-y-12">
         {children}
       </div>
     </section>
