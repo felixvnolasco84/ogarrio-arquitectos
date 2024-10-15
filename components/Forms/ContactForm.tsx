@@ -3,6 +3,7 @@
 import * as z from "zod";
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import {
   Select,
   SelectContent,
@@ -17,6 +18,7 @@ import {
   FormDescription,
   FormField,
   FormItem,
+  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -29,15 +31,25 @@ import { DialogClose, DialogFooter } from "../ui/dialog";
 import { Button } from "../ui/button";
 import { Loader } from "lucide-react";
 import { Doc } from "@/convex/_generated/dataModel";
+import { Label } from "../ui/label";
 
 export default function ContactForm() {
+  const interest: string[] = [
+    "Design",
+    "Construction & Design",
+    "Development Project",
+  ];
+
   const FormSchema = z.object({
     title: z.string().min(1, { message: "Por favor ingresa un título" }),
     email: z.string().email({ message: "Por favor ingresa un email válido" }),
     message: z.string().min(1, { message: "Por favor ingresa un mensaje" }),
-    projectTypes: z
-      .string()
-      .min(1, { message: "Por favor ingresa un tipo de proyecto" }),
+    projectTypes: z.enum(
+      ["Design", "Construction & Design", "Development Project"],
+      {
+        required_error: "Por favor selecciona un tipo de proyecto",
+      }
+    ),
   });
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -49,7 +61,7 @@ export default function ContactForm() {
       title: "",
       email: "",
       message: "",
-      projectTypes: "",
+      projectTypes: "Design",
     },
   });
 
@@ -62,47 +74,143 @@ export default function ContactForm() {
     }
   }
 
+  const [selectedItem, setSelectedItem] = useState<number | null>(null);
+
+  const handleItemClick = (index: number) => {
+    setSelectedItem(index === selectedItem ? null : index);
+  };
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
-        <div className="grid gap-2">
-          <div className="grid gap-4">
-            <div className="grid w-full items-center gap-1.5">
-              <FormField
-                control={form.control}
-                name="title"
-                render={({ field }) => (
-                  <FormItem className="space-y-1">
-                    <FormControl>
-                      <Input
-                        placeholder="jhon@doe.com"
-                        className="resize-none bg-transparent py-0"
-                        autoCapitalize="none"
-                        autoComplete="email"
-                        autoCorrect="off"
-                        disabled={isLoading}
-                        {...field}
-                      ></Input>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
+        <div className="grid justify-items-start gap-2 border-b border-b-gray-400 pb-12">
+          <div className="grid max-w-7xl gap-4">
+            <FormField
+              control={form.control}
+              name="title"
+              render={({ field }) => (
+                <FormItem className="grid grid-cols-2 items-end gap-4 border-b border-b-gray-400 pb-12 pt-8">
+                  <FormLabel className="text-2xl">NAME</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="NAME"
+                      className="mt-0 h-8 resize-none rounded-none border-none bg-transparent py-0 text-2xl shadow-none placeholder:text-gray-400 focus:border-none focus:ring-0"
+                      autoCapitalize="none"
+                      autoComplete="email"
+                      autoCorrect="off"
+                      disabled={isLoading}
+                      {...field}
+                    ></Input>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem className="grid grid-cols-2 items-end gap-4 border-b border-b-gray-400 pb-12 pt-8">
+                  <FormLabel className="text-2xl">EMAIL</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="name@gmail.com"
+                      className="mt-0 h-8 resize-none rounded-none border-none bg-transparent py-0 text-2xl shadow-none placeholder:text-gray-400 focus:border-none focus:ring-0"
+                      autoCapitalize="none"
+                      autoComplete="email"
+                      autoCorrect="off"
+                      disabled={isLoading}
+                      {...field}
+                    ></Input>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="message"
+              render={({ field }) => (
+                <FormItem className="grid grid-cols-2 items-end gap-4 border-b border-b-gray-400 pb-12 pt-8">
+                  <FormLabel className="text-2xl">MESSAGE</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="MESSAGE"
+                      className="mt-0 h-8 resize-none rounded-none border-none bg-transparent py-0 text-2xl shadow-none placeholder:text-gray-400 focus:border-none focus:ring-0"
+                      autoCapitalize="none"
+                      autoComplete="email"
+                      autoCorrect="off"
+                      disabled={isLoading}
+                      {...field}
+                    ></Input>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="projectTypes"
+              render={({ field }) => (
+                <FormItem className="grid grid-cols-2 items-end gap-4 border-b border-b-gray-400 pb-12 pt-8">
+                  <FormLabel className="text-2xl">PROJECT TYPES</FormLabel>
+                  <FormControl>
+                    <RadioGroup
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                      className="flex gap-4"
+                    >
+                      {interest.map((service: any, index: any) => (
+                        <FormItem key={index} className={`relative`}>
+                          <FormControl
+                            onClick={() => handleItemClick(index)}
+                            className={`absolute bottom-0 left-0 w-full h-full
+                        ${
+                          index === selectedItem
+                            ? "bg-flourescentYellow"
+                            : "bg-gray-400 hover:bg-flourescentYellow"
+                        }
+                        `}
+                          >
+                            <RadioGroupItem
+                              className="-z-10 rounded-[10px] border-none"
+                              value={service}
+                            />
+                          </FormControl>
+                          <FormLabel className="cursor-pointer">
+                            <div className="flex flex-col gap-8 text-2xl text-gray-400 lg:gap-6">
+                              <span>{service}</span>
+                            </div>
+                          </FormLabel>
+                        </FormItem>
+                      ))}
+                    </RadioGroup>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
           </div>
-          <DialogFooter>
+          <DialogFooter className="grid gap-8 py-12">
+            <Button
+              className="h-fit bg-white p-0 text-6xl text-black/60 transition-all duration-300 ease-in-out hover:bg-white hover:text-black"
+              type="submit"
+              disabled={isLoading}
+              variant={"default"}
+            >
+              {isLoading ? <Loader className="h-4 w-4 animate-spin" /> : "SEND"}
+            </Button>
             <DialogClose asChild>
-              <Button type="button" variant="outline">
+              <Button
+                className="h-fit bg-white p-0 text-6xl text-black/40 transition-all duration-300 ease-in-out hover:bg-white hover:text-black"
+                type="button"
+                variant="default"
+              >
                 BACK
               </Button>
             </DialogClose>
-            <Button type="submit" disabled={isLoading} variant={"default"}>
-              {isLoading ? (
-                <Loader className="h-4 w-4 animate-spin" />
-              ) : (
-                "SEND"
-              )}
-            </Button>
           </DialogFooter>
         </div>
       </form>

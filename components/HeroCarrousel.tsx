@@ -14,6 +14,36 @@ import LOSCABOSHEROIMAGE from "@/public/images/CCSJ_CAM04_AMENITIES_post.png";
 
 import LOGO from "@/public/svg/Logo.svg";
 import { useEffect, useState } from "react";
+import { Progress } from "./ui/progress";
+
+interface PositionIndicatorProps {
+  current: number;
+  count: number;
+  api: CarouselApi;
+}
+
+const PositionIndicator: React.FC<PositionIndicatorProps> = ({
+  api,
+  current,
+  count,
+}) => {
+
+  return (
+    <div className="absolute bottom-0 right-0 z-50 flex cursor-pointer justify-center p-4">
+      {Array.from({ length: count  }).map((_, index) => (
+        <div
+          onClick={() => {
+            api?.scrollTo(index);
+          }}
+          className={`w-32 h-2 mx-1 rounded-full ${
+             index < current ? "bg-white/50" : "bg-white"
+          }`}
+          key={index}
+        ></div>
+      ))}
+    </div>
+  );
+};
 
 type HeroItem = {
   title: string;
@@ -31,14 +61,16 @@ export default function HeroCarrousel() {
       return;
     }
 
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap() + 1);
+    const itemCount = api.scrollSnapList().length;
+
+    console.log(itemCount);
+    setCount(itemCount);
+    setCurrent(api.selectedScrollSnap());
 
     api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1);
+      setCurrent(api.selectedScrollSnap());
     });
   }, [api]);
-
   const heroItems: HeroItem[] = [
     {
       title: "LARENA CAMPESTRE SAN JOSÉ",
@@ -54,6 +86,7 @@ export default function HeroCarrousel() {
 
   return (
     <Carousel
+      setApi={setApi}
       opts={{
         align: "start",
       }}
@@ -70,7 +103,12 @@ export default function HeroCarrousel() {
               </CardHeader>
               <CardContent className="h-svh w-svw p-0">
                 <div className="flex h-svh w-svw flex-col items-center justify-center">
-                  <Image src={item.image.src} alt={item.title} fill className="object-cover object-center" />
+                  <Image
+                    src={item.image.src}
+                    alt={item.title}
+                    fill
+                    className="object-cover object-center"
+                  />
                 </div>
                 <CardFooter className="absolute bottom-0 left-0 right-0 z-50 flex w-fit flex-col items-start justify-start bg-transparent p-12 text-white">
                   <p className="text-2xl">{item.place}</p>
@@ -82,13 +120,12 @@ export default function HeroCarrousel() {
         ))}
       </CarouselContent>
 
-      <div className="absolute bottom-0 right-0 p-12">
-        <CarouselPrevious />
-        <CarouselNext />
-        {/* <div className="py-2 text-center text-sm text-muted-foreground">
+      <PositionIndicator count={count} current={current} api={api} />
+      {/* <CarouselPrevious />
+        <CarouselNext /> */}
+      {/* <div className="py-2 text-center text-sm text-muted-foreground">
           Slide {current} of {count}
         </div> */}
-      </div>
     </Carousel>
   );
 }

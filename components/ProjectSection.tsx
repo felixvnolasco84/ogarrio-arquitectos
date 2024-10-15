@@ -18,10 +18,10 @@ export default function ProjectSection({ project }: { project: Project }) {
         />
       </div>
 
-      <div className="grid gap-12 py-16">
-        <div className="grid grid-cols-2 text-3xl">
+      <div className="grid gap-12">
+        <div className="grid grid-cols-2 py-12 text-3xl">
           <h3>{project.title}</h3>
-          <h4 className="text-end">{project.place}</h4>
+          <h4 className="text-end text-gray-400">{project.place}</h4>
         </div>
 
         <div className="grid grid-cols-2">
@@ -33,7 +33,7 @@ export default function ProjectSection({ project }: { project: Project }) {
             <div className="grid">
               {project.data.map((item) => (
                 <div
-                  className="grid grid-cols-2 border-b border-gray-400 py-8"
+                  className="grid grid-cols-2 border-b border-gray-300 py-12"
                   key={item.title}
                 >
                   <h3>{item.title}</h3>
@@ -45,7 +45,7 @@ export default function ProjectSection({ project }: { project: Project }) {
               {project.featureData.map((item) => (
                 <div key={item.title} className="flex flex-col gap-2">
                   <h3 className="text-7xl font-bold">{item.title}</h3>
-                  <p>{item.description}</p>
+                  <p className="text-2xl">{item.description}</p>
                 </div>
               ))}
             </div>
