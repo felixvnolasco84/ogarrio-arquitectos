@@ -3,8 +3,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
 import Image, { StaticImageData } from "next/image";
@@ -14,7 +12,6 @@ import LOSCABOSHEROIMAGE from "@/public/images/CCSJ_CAM04_AMENITIES_post.png";
 
 import LOGO from "@/public/svg/Logo.svg";
 import { useEffect, useState } from "react";
-import { Progress } from "./ui/progress";
 
 interface PositionIndicatorProps {
   current: number;
@@ -27,20 +24,26 @@ const PositionIndicator: React.FC<PositionIndicatorProps> = ({
   current,
   count,
 }) => {
-
   return (
-    <div className="absolute bottom-0 right-0 z-50 flex cursor-pointer justify-center p-4">
-      {Array.from({ length: count  }).map((_, index) => (
-        <div
-          onClick={() => {
-            api?.scrollTo(index);
-          }}
-          className={`w-32 h-2 mx-1 rounded-full ${
-             index < current ? "bg-white/50" : "bg-white"
-          }`}
-          key={index}
-        ></div>
-      ))}
+    <div className="absolute bottom-0 right-0 z-50 hidden cursor-pointer justify-center p-12 lg:flex">
+      <div className="flex items-center gap-x-12 text-white/90">
+        <span onClick={() => api?.scrollTo(current - 1)}>PREV</span>
+
+        <div className="flex gap-1">
+          {Array.from({ length: count }).map((_, index) => (
+            <div
+              key={index}
+              onClick={() => {
+                api?.scrollTo(index);
+              }}
+              className={`w-16 h-1 rounded-full ${
+                index < current ? "bg-white/50" : "bg-white"
+              }`}
+            ></div>
+          ))}
+        </div>
+        <span onClick={() => api?.scrollTo(current + 1)}>NEXT</span>
+      </div>
     </div>
   );
 };
@@ -60,10 +63,7 @@ export default function HeroCarrousel() {
     if (!api) {
       return;
     }
-
     const itemCount = api.scrollSnapList().length;
-
-    console.log(itemCount);
     setCount(itemCount);
     setCurrent(api.selectedScrollSnap());
 
@@ -95,9 +95,9 @@ export default function HeroCarrousel() {
       <CarouselContent>
         {heroItems.map((item) => (
           <CarouselItem key={item.title}>
-            <Card className="relative w-svw rounded-none p-0 lg:aspect-video xl:aspect-auto xl:h-svh">
+            <Card className="h- relative w-svw rounded-none p-0 lg:aspect-video xl:aspect-auto xl:h-svh">
               <div className="absolute bottom-0 left-0 z-50 h-svh w-svw bg-black/20" />
-              <CardHeader className="absolute left-0 right-0 top-0 z-40 flex w-fit flex-col items-center justify-center p-12">
+              <CardHeader className="absolute left-0 right-0 top-0 z-40 flex w-fit flex-col items-center justify-center p-6 lg:p-12">
                 {/* <h1>OGARRIO ARQUITECTOS</h1> */}
                 <Image src={LOGO} alt={item.title} width={280} />
               </CardHeader>
@@ -110,7 +110,7 @@ export default function HeroCarrousel() {
                     className="object-cover object-center"
                   />
                 </div>
-                <CardFooter className="absolute bottom-0 left-0 right-0 z-50 flex w-fit flex-col items-start justify-start bg-transparent p-12 text-white">
+                <CardFooter className="absolute bottom-0 left-0 right-0 z-50 flex w-fit flex-col items-start justify-start bg-transparent p-6 text-white lg:p-12">
                   <p className="text-2xl">{item.place}</p>
                   <h2 className="text-4xl font-bold">{item.title}</h2>
                 </CardFooter>

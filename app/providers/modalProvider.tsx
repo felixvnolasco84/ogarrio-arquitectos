@@ -1,6 +1,7 @@
 "use client";
 
 import ContactModal from "@/components/modals/contactModal";
+import SuccessContactModal from "@/components/modals/successContactModal";
 import { useEffect, useState } from "react";
 
 export const ModalProvider = () => {
@@ -17,6 +18,7 @@ export const ModalProvider = () => {
   return (
     <>
       <ContactModal />
+      <SuccessContactModal />
     </>
   );
 };

@@ -2,7 +2,7 @@ import CustomSection from "./CustomSection";
 
 export default function AboutSection() {
   return (
-    <div className="grid items-center justify-center space-y-12 lg:grid-cols-2 lg:items-start lg:justify-between lg:px-12 lg:py-24">
+    <div className="grid items-center justify-center space-y-12 px-4 lg:grid-cols-2 lg:items-start lg:justify-between lg:px-12 lg:py-24">
       <h2 className="text-center text-5xl lg:text-left">ABOUT US</h2>
 
       <div className="flex lg:justify-end">
