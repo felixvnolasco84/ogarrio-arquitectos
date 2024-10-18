@@ -103,7 +103,7 @@ export default function HeroCarrousel() {
       }}
       className="relative w-full bg-black"
     >
-      <div className="absolute left-0 right-0 top-0 z-50 flex w-fit flex-col items-center justify-center p-6 lg:p-12">
+      <div className="absolute left-0 right-0 top-0 z-50 flex w-fit flex-col items-center justify-center p-6 lg:p-12 lg:px-12 2xl:px-12">
         <Image src={LOGO} alt={"Logo"} width={280} />
       </div>
 
@@ -121,9 +121,9 @@ export default function HeroCarrousel() {
                     className="object-cover object-center"
                   />
                 </div>
-                <CardFooter className="absolute bottom-0 left-0 right-0 z-50 flex h-full w-full flex-col items-start justify-end bg-transparent p-6 px-4 pb-12 text-white lg:justify-end lg:p-12 lg:px-6">
+                <CardFooter className="absolute bottom-0 left-0 right-0 z-50 flex h-full w-full flex-col items-start justify-end bg-transparent p-6 px-4 pb-12 text-white lg:justify-end lg:p-12 lg:px-12 2xl:px-12">
                   <p className="text-base lg:text-2xl">{item.place}</p>
-                  <h2 className="max-w-xs text-3xl font-bold lg:max-w-none lg:text-4xl">
+                  <h2 className="max-w-xs text-3xl lg:max-w-none lg:text-4xl">
                     {item.title}
                   </h2>
                 </CardFooter>
