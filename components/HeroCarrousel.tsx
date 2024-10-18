@@ -71,6 +71,7 @@ export default function HeroCarrousel() {
       setCurrent(api.selectedScrollSnap());
     });
   }, [api]);
+  
   const heroItems: HeroItem[] = [
     {
       title: "LARENA CAMPESTRE SAN JOSÉ",
@@ -95,10 +96,9 @@ export default function HeroCarrousel() {
       <CarouselContent>
         {heroItems.map((item) => (
           <CarouselItem key={item.title}>
-            <Card className="h- relative w-svw rounded-none p-0 lg:aspect-video xl:aspect-auto xl:h-svh">
+            <Card className="relative aspect-[10/16] w-svw rounded-none p-0 lg:aspect-video xl:aspect-auto xl:h-svh">
               <div className="absolute bottom-0 left-0 z-50 h-svh w-svw bg-black/20" />
-              <CardHeader className="absolute left-0 right-0 top-0 z-40 flex w-fit flex-col items-center justify-center p-6 lg:p-12">
-                {/* <h1>OGARRIO ARQUITECTOS</h1> */}
+              <CardHeader className="absolute left-0 right-0 top-0 z-50 flex w-fit flex-col items-center justify-center p-6 lg:p-12">
                 <Image src={LOGO} alt={item.title} width={280} />
               </CardHeader>
               <CardContent className="h-svh w-svw p-0">
@@ -110,9 +110,9 @@ export default function HeroCarrousel() {
                     className="object-cover object-center"
                   />
                 </div>
-                <CardFooter className="absolute bottom-0 left-0 right-0 z-50 flex w-fit flex-col items-start justify-start bg-transparent p-6 text-white lg:p-12">
-                  <p className="text-2xl">{item.place}</p>
-                  <h2 className="text-4xl font-bold">{item.title}</h2>
+                <CardFooter className="lg:justify-endf absolute bottom-0 left-0 right-0 z-50 flex h-full w-full flex-col items-start justify-end bg-transparent p-6 text-white lg:p-12">
+                  <p className="text-xl lg:text-2xl">{item.place}</p>
+                  <h2 className="text-2xl font-bold lg:text-4xl">{item.title}</h2>
                 </CardFooter>
               </CardContent>
             </Card>

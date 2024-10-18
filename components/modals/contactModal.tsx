@@ -14,9 +14,9 @@ export default function ContactModal() {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="h-svw w-svw max-w-none py-12">
         <Card className="border-none shadow-none">
-          <CardHeader className="spacey-y-4 px-4 lg:space-y-12 lg:px-12">
+          <CardHeader className="spacey-y-4 space-y-4 px-4 lg:space-y-12 lg:px-12">
             <Image src={Logo} alt={""} width={280} />
-            <CardTitle className="text-4xl text-gray-400">CONTACT US</CardTitle>
+            <CardTitle className="text-2xl text-gray-400 lg:text-4xl">CONTACT US</CardTitle>
           </CardHeader>
           <CardContent className="my-auto px-4 lg:px-12">
             <ContactForm />

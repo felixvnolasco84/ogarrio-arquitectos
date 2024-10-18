@@ -74,18 +74,18 @@ export default function ContactForm() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
-        <div className="grid justify-items-start gap-2 border-b border-b-gray-400 pb-12">
-          <div className="grid max-w-7xl gap-4">
+        <div className="grid justify-items-start border-b border-b-gray-400 pb-4 lg:gap-2 lg:pb-12">
+          <div className="grid gap-2 text-3xl lg:max-w-7xl lg:gap-4">
             <FormField
               control={form.control}
               name="title"
               render={({ field }) => (
-                <FormItem className="grid grid-cols-2 items-end gap-4 border-b border-b-gray-400 py-12 lg:pb-12 lg:pt-8">
-                  <FormLabel className="text-2xl">NAME</FormLabel>
+                <FormItem className="grid grid-cols-2 items-end gap-4 border-b border-b-gray-400 py-4 lg:py-12 lg:pb-12 lg:pt-8">
+                  <FormLabel className="text-xl lg:text-2xl">NAME</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="NAME"
-                      className="mt-0 h-8 resize-none rounded-none border-none bg-transparent py-0 text-2xl shadow-none placeholder:text-gray-400 focus-visible:ring-transparent"
+                      className="mt-0 h-8 resize-none rounded-none border-none bg-transparent py-0 text-lg shadow-none placeholder:text-gray-400 focus-visible:ring-transparent lg:text-2xl"
                       autoCapitalize="none"
                       autoComplete="email"
                       autoCorrect="off"
@@ -102,12 +102,12 @@ export default function ContactForm() {
               control={form.control}
               name="email"
               render={({ field }) => (
-                <FormItem className="grid grid-cols-2 items-end gap-4 border-b border-b-gray-400 py-12 lg:pb-12 lg:pt-8">
-                  <FormLabel className="text-2xl">EMAIL</FormLabel>
+                <FormItem className="grid grid-cols-2 items-end gap-4 border-b border-b-gray-400 py-4 lg:py-12 lg:pb-12 lg:pt-8">
+                  <FormLabel className="text-xl lg:text-2xl">EMAIL</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="name@gmail.com"
-                      className="mt-0 h-8 resize-none rounded-none border-none bg-transparent py-0 text-2xl shadow-none placeholder:text-gray-400 focus-visible:ring-transparent"
+                      className="mt-0 h-8 resize-none rounded-none border-none bg-transparent py-0 text-lg shadow-none placeholder:text-gray-400 focus-visible:ring-transparent lg:text-2xl"
                       autoCapitalize="none"
                       autoComplete="email"
                       autoCorrect="off"
@@ -123,12 +123,12 @@ export default function ContactForm() {
               control={form.control}
               name="message"
               render={({ field }) => (
-                <FormItem className="grid grid-cols-2 items-end gap-4 border-b border-b-gray-400 py-12 lg:pb-12 lg:pt-8">
-                  <FormLabel className="text-2xl">MESSAGE</FormLabel>
+                <FormItem className="grid grid-cols-2 items-end gap-4 border-b border-b-gray-400 py-4 lg:py-12 lg:pb-12 lg:pt-8">
+                  <FormLabel className="text-xl lg:text-2xl">MESSAGE</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="MESSAGE"
-                      className="mt-0 h-8 resize-none rounded-none border-none bg-transparent py-0 text-2xl shadow-none placeholder:text-gray-400 focus-visible:ring-transparent"
+                      className="mt-0 h-8 resize-none rounded-none border-none bg-transparent py-0 text-lg shadow-none placeholder:text-gray-400 focus-visible:ring-transparent lg:text-2xl"
                       autoCapitalize="none"
                       autoComplete="email"
                       autoCorrect="off"
@@ -145,8 +145,8 @@ export default function ContactForm() {
               control={form.control}
               name="projectTypes"
               render={({ field }) => (
-                <FormItem className="border-b-gra py-4y-400 12der-b grid grid-cols-2 items-start gap-4 lg:items-end lg:pb-12 lg:pt-8">
-                  <FormLabel className="text-2xl">PROJECT TYPES</FormLabel>
+                <FormItem className="grid items-start gap-4 py-4 lg:grid-cols-2 lg:items-end lg:pb-12 lg:pt-8"> 
+                  <FormLabel className="text-xl lg:text-2xl">PROJECT TYPES</FormLabel>
                   <FormControl>
                     <RadioGroup
                       onValueChange={field.onChange}
@@ -188,9 +188,9 @@ export default function ContactForm() {
               )}
             />
           </div>
-          <DialogFooter className="grid gap-8 py-12">
+          <DialogFooter className="grid grid-cols-2 gap-8 pb-4 pt-8 lg:grid-cols-1 lg:py-12">
             <Button
-              className="h-fit bg-white p-0 text-6xl text-black/60 transition-all duration-300 ease-in-out hover:bg-white hover:text-black"
+              className="h-fit bg-white p-0 text-3xl text-black/60 transition-all duration-300 ease-in-out hover:bg-white hover:text-black lg:text-6xl"
               type="submit"
               disabled={isLoading}
               variant={"default"}
@@ -199,7 +199,7 @@ export default function ContactForm() {
             </Button>
             <DialogClose asChild>
               <Button
-                className="h-fit bg-white p-0 text-6xl text-black/40 transition-all duration-300 ease-in-out hover:bg-white hover:text-black"
+                className="h-fit bg-white p-0 text-3xl text-black/40 transition-all duration-300 ease-in-out hover:bg-white hover:text-black lg:text-6xl"
                 type="button"
                 variant="default"
               >

@@ -23,21 +23,21 @@ export default function SuccessContactModal() {
       <DialogContent className="h-svw grid w-svw max-w-none items-center justify-center p-0">
         <Card className="border-none shadow-none">
           <CardHeader>
-            <div className="h-fit p-12">
+            <div className="h-fit p-4 lg:p-0 2xl:p-12">
               <Image src={Logo} alt={""} width={280} />
             </div>
           </CardHeader>
           <CardContent>
-            <h3 className="h-fit bg-white p-0 text-6xl text-black/40 transition-all duration-300 ease-in-out hover:bg-white hover:text-black">
+            <h3 className="h-fit bg-white p-0 text-3xl text-black/40 transition-all duration-300 ease-in-out lg:text-4xl 2xl:text-6xl">
               Thank you for your interest! We will be in touch soon with more
               information.
             </h3>
           </CardContent>
 
           <CardFooter>
-            <DialogFooter className="flex flex-col gap-8">
+            <DialogFooter className="flex flex-row gap-4 lg:flex-col lg:gap-8">
               <Button
-                className="h-fit cursor-not-allowed bg-white p-0 text-6xl text-black/60 transition-all duration-300 ease-in-out hover:bg-white hover:text-black"
+                className="h-fit cursor-not-allowed bg-white p-0 text-3xl text-black/60 transition-all duration-300 ease-in-out hover:bg-white hover:text-black lg:text-4xl 2xl:text-6xl"
                 type="submit"
                 disabled={true}
                 variant={"default"}
@@ -46,7 +46,7 @@ export default function SuccessContactModal() {
               </Button>
               <DialogClose asChild>
                 <Button
-                  className="h-fit bg-white p-0 text-6xl text-black/40 transition-all duration-300 ease-in-out hover:bg-white hover:text-black"
+                  className="h-fit bg-white p-0 text-3xl text-black/40 transition-all duration-300 ease-in-out hover:bg-white hover:text-black lg:text-4xl 2xl:text-6xl"
                   type="button"
                   variant="default"
                 >

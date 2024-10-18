@@ -9,7 +9,7 @@ export default function ContactButton() {
   return (
     <h3
       onClick={() => contactModal.onOpen()}
-      className="w-fit cursor-pointer rounded-none text-5xl text-gray-400"
+      className="w-fit cursor-pointer rounded-none text-3xl text-gray-400 lg:text-5xl"
     >
       CONTACT US
     </h3>

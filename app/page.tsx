@@ -105,20 +105,14 @@ const projects = [
 
 export default function Home() {
   return (
-    <main className="relative flex flex-col gap-10 pb-24 lg:gap-20">
+    <main className="relative flex flex-col gap-10 pb-12 lg:gap-20 lg:pb-24">
       <HeroCarrousel />
       <AboutSection />
 
       {projects.map((project, index) => (
         <ProjectSection key={index} project={project} />
       ))}
-
-      {}
-      {/* <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-        {projects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
-        ))}
-      </div> */}
+      
     </main>
   );
 }
