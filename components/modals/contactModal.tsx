@@ -23,7 +23,7 @@ export default function ContactModal() {
               CONTACT US
             </CardTitle>
           </CardHeader>
-          <CardContent className="my-auto px-4 lg:px-12">
+          <CardContent className="my-auto lg:px-12">
             <ContactForm />
           </CardContent>
         </Card>
