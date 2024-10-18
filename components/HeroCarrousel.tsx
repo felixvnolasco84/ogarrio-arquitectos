@@ -25,9 +25,14 @@ const PositionIndicator: React.FC<PositionIndicatorProps> = ({
   count,
 }) => {
   return (
-    <div className="absolute bottom-0 right-0 z-50 hidden cursor-pointer justify-center p-12 lg:flex">
-      <div className="flex items-center gap-x-12 text-white/90">
-        <span onClick={() => api?.scrollTo(current - 1)}>PREV</span>
+    <div className="absolute bottom-0 right-0 z-50 flex w-full cursor-pointer justify-start p-6 lg:w-fit lg:justify-center lg:p-12">
+      <div className="flex gap-x-12 text-white/90 lg:items-center">
+        <span
+          className="hidden lg:block"
+          onClick={() => api?.scrollTo(current - 1)}
+        >
+          PREV
+        </span>
 
         <div className="flex gap-1">
           {Array.from({ length: count }).map((_, index) => (
@@ -42,7 +47,12 @@ const PositionIndicator: React.FC<PositionIndicatorProps> = ({
             ></div>
           ))}
         </div>
-        <span onClick={() => api?.scrollTo(current + 1)}>NEXT</span>
+        <span
+          className="hidden lg:block"
+          onClick={() => api?.scrollTo(current + 1)}
+        >
+          NEXT
+        </span>
       </div>
     </div>
   );
@@ -93,14 +103,15 @@ export default function HeroCarrousel() {
       }}
       className="relative w-full bg-black"
     >
+      <div className="absolute left-0 right-0 top-0 z-50 flex w-fit flex-col items-center justify-center p-6 lg:p-12">
+        <Image src={LOGO} alt={"Logo"} width={280} />
+      </div>
+
       <CarouselContent>
         {heroItems.map((item) => (
           <CarouselItem key={item.title}>
             <Card className="relative aspect-[10/16] w-svw rounded-none p-0 lg:aspect-video xl:aspect-auto xl:h-svh">
               <div className="absolute bottom-0 left-0 z-50 h-svh w-svw bg-black/20" />
-              <CardHeader className="absolute left-0 right-0 top-0 z-50 flex w-fit flex-col items-center justify-center p-6 lg:p-12">
-                <Image src={LOGO} alt={item.title} width={280} />
-              </CardHeader>
               <CardContent className="h-svh w-svw p-0">
                 <div className="flex h-svh w-svw flex-col items-center justify-center">
                   <Image
@@ -110,9 +121,11 @@ export default function HeroCarrousel() {
                     className="object-cover object-center"
                   />
                 </div>
-                <CardFooter className="lg:justify-endf absolute bottom-0 left-0 right-0 z-50 flex h-full w-full flex-col items-start justify-end bg-transparent p-6 text-white lg:p-12">
-                  <p className="text-xl lg:text-2xl">{item.place}</p>
-                  <h2 className="text-2xl font-bold lg:text-4xl">{item.title}</h2>
+                <CardFooter className="absolute bottom-0 left-0 right-0 z-50 flex h-full w-full flex-col items-start justify-end bg-transparent p-6 px-4 pb-12 text-white lg:justify-end lg:p-12 lg:px-6">
+                  <p className="text-base lg:text-2xl">{item.place}</p>
+                  <h2 className="max-w-xs text-3xl font-bold lg:max-w-none lg:text-4xl">
+                    {item.title}
+                  </h2>
                 </CardFooter>
               </CardContent>
             </Card>

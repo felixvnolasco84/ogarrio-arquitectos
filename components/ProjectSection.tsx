@@ -15,18 +15,18 @@ export default function ProjectSection({ project }: { project: Project }) {
         />
       </div>
 
-      <div className="grid lg:gap-4 2xl:gap-12">
+      <div className="grid gap-2 lg:gap-4 2xl:gap-12">
         <div className="grid gap-1 py-4 text-2xl lg:grid-cols-2 lg:gap-0 lg:py-8 lg:text-3xl 2xl:py-12">
           <h3>{project.title}</h3>
-          <h4 className="text-[#A3A3A3] lg:text-end">{project.place}</h4>
+          <h4 className="text-base text-[#A3A3A3] lg:text-end lg:text-3xl">{project.place}</h4>
         </div>
 
-        <div className="grid gap-4 lg:gap-12 xl:grid-cols-2">
+        <div className="grid gap-8 lg:gap-12 xl:grid-cols-2">
           <div className="grid max-w-4xl text-2xl lg:text-3xl">
             <p>{project.description}</p>
           </div>
 
-          <div className="grid gap-12 text-xl lg:gap-24 lg:text-3xl">
+          <div className="grid gap-16 text-xl lg:gap-24 lg:text-3xl">
             <div className="grid">
               {project.data.map((item) => (
                 <div

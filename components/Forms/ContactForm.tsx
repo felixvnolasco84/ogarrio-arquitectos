@@ -1,6 +1,7 @@
 "use client";
 
 import * as z from "zod";
+import { MazzardM_Medium } from "@/utils/fonts";
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
@@ -14,7 +15,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useRouter } from "next/navigation";
 import { DialogClose, DialogFooter } from "../ui/dialog";
 import { Button } from "../ui/button";
 import { Loader } from "lucide-react";
@@ -84,7 +84,7 @@ export default function ContactForm() {
                   <FormLabel className="text-xl lg:text-2xl">NAME</FormLabel>
                   <FormControl>
                     <Input
-                      placeholder="NAME"
+                      placeholder="Name"
                       className="mt-0 h-8 resize-none rounded-none border-none bg-transparent py-0 text-lg shadow-none placeholder:text-gray-400 focus-visible:ring-transparent lg:text-2xl"
                       autoCapitalize="none"
                       autoComplete="email"
@@ -127,7 +127,7 @@ export default function ContactForm() {
                   <FormLabel className="text-xl lg:text-2xl">MESSAGE</FormLabel>
                   <FormControl>
                     <Input
-                      placeholder="MESSAGE"
+                      placeholder="Message"
                       className="mt-0 h-8 resize-none rounded-none border-none bg-transparent py-0 text-lg shadow-none placeholder:text-gray-400 focus-visible:ring-transparent lg:text-2xl"
                       autoCapitalize="none"
                       autoComplete="email"
@@ -145,13 +145,15 @@ export default function ContactForm() {
               control={form.control}
               name="projectTypes"
               render={({ field }) => (
-                <FormItem className="grid items-start gap-4 py-4 lg:grid-cols-2 lg:items-end lg:pb-12 lg:pt-8"> 
-                  <FormLabel className="text-xl lg:text-2xl">PROJECT TYPES</FormLabel>
+                <FormItem className="grid items-start py-4 lg:grid-cols-2 lg:items-end lg:pb-12 lg:pt-8">
+                  <FormLabel className="text-xl lg:text-2xl">
+                    PROJECT TYPES
+                  </FormLabel>
                   <FormControl>
                     <RadioGroup
                       onValueChange={field.onChange}
                       defaultValue={field.value}
-                      className="flex flex-col gap-4 lg:flex-row"
+                      className="flex flex-col gap-1 lg:flex-row lg:gap-4"
                     >
                       {interest.map((service: any, index: any) => (
                         <FormItem key={index} className={`relative`}>
@@ -188,22 +190,22 @@ export default function ContactForm() {
               )}
             />
           </div>
-          <DialogFooter className="grid grid-cols-2 gap-8 pb-4 pt-8 lg:grid-cols-1 lg:py-12">
+          <DialogFooter className="grid grid-cols-2 gap-4 pb-4 pt-8 lg:grid-cols-1 lg:gap-8 lg:py-12">
             <Button
-              className="h-fit bg-white p-0 text-3xl text-black/60 transition-all duration-300 ease-in-out hover:bg-white hover:text-black lg:text-6xl"
+              className={`h-fit bg-white p-0 text-3xl text-[#BABABB] transition-all duration-300 ease-in-out hover:bg-white hover:text-black lg:text-6xl ${MazzardM_Medium.className} `}
               type="submit"
               disabled={isLoading}
               variant={"default"}
             >
-              {isLoading ? <Loader className="h-4 w-4 animate-spin" /> : "SEND"}
+              {isLoading ? <Loader className="h-4 w-4 animate-spin" /> : "Send"}
             </Button>
             <DialogClose asChild>
               <Button
-                className="h-fit bg-white p-0 text-3xl text-black/40 transition-all duration-300 ease-in-out hover:bg-white hover:text-black lg:text-6xl"
+                className={`h-fit bg-white p-0 text-3xl text-gray-300/80  transition-all duration-300 ease-in-out hover:bg-white hover:text-black lg:text-6xl ${MazzardM_Medium.className} `}
                 type="button"
                 variant="default"
               >
-                BACK
+                Back
               </Button>
             </DialogClose>
           </DialogFooter>
