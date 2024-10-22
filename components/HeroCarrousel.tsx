@@ -25,7 +25,7 @@ const PositionIndicator: React.FC<PositionIndicatorProps> = ({
   count,
 }) => {
   return (
-    <div className="absolute bottom-0 right-0 z-50 flex w-full cursor-pointer justify-start p-6 lg:w-fit lg:justify-center lg:p-12">
+    <div className="absolute bottom-0 right-0 z-50 flex w-full cursor-pointer justify-start px-4 py-6 lg:w-fit lg:justify-center lg:p-12">
       <div className="flex gap-x-12 text-white/90 lg:items-center">
         <span
           className="hidden lg:block"
@@ -42,7 +42,7 @@ const PositionIndicator: React.FC<PositionIndicatorProps> = ({
                 api?.scrollTo(index);
               }}
               className={`w-16 h-1 rounded-full ${
-                index < current ? "bg-white/50" : "bg-white"
+                index === current ? "bg-white" : "bg-white/50"
               }`}
             ></div>
           ))}
@@ -103,8 +103,9 @@ export default function HeroCarrousel() {
       }}
       className="relative w-full bg-black"
     >
-      <div className="absolute left-0 right-0 top-0 z-50 flex w-fit flex-col items-center justify-center p-6 lg:p-12 lg:px-12 2xl:px-12">
-        <Image src={LOGO} alt={"Logo"} width={280} />
+      <div className="absolute left-0 right-0 top-0 z-50 flex w-fit flex-col items-center justify-center px-4 py-6 lg:p-12 lg:px-12 2xl:px-12">
+        <Image className="hidden lg:block" src={LOGO} alt={"Logo"} width={280}  />
+        <Image className="block lg:hidden" src={LOGO} alt={"Logo"} width={210}  />
       </div>
 
       <CarouselContent>

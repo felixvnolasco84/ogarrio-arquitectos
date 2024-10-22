@@ -13,17 +13,18 @@ export default function ContactModal() {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="h-svw w-svw max-w-none py-12">
-        <Card className="border-none shadow-none">
-          <CardHeader className="spacey-y-4 space-y-4 px-0 lg:space-y-12 lg:px-12">
-            <Image src={Logo} alt={""} width={280} />
+      <DialogContent className="h-svw w-svw max-w-none">
+        <Card className="overflow-y-scroll border-none shadow-none">
+          <CardHeader className="space-y-4 px-0 py-0 lg:space-y-12 lg:py-4 xl:px-12">
+            <Image className="hidden lg:block" src={Logo} alt={""} width={280} />
+            <Image className="block lg:hidden" src={Logo} alt={""} width={210} />
             <CardTitle
               className={`text-2xl text-[#BABABB] lg:text-4xl ${MazzardM_Medium.className}`}
             >
               CONTACT US
             </CardTitle>
           </CardHeader>
-          <CardContent className="my-auto px-0 lg:px-12">
+          <CardContent className="my-auto px-0 xl:px-12">
             <ContactForm />
           </CardContent>
         </Card>

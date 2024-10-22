@@ -105,7 +105,7 @@ const projects = [
 
 export default function Home() {
   return (
-    <main className="relative flex flex-col gap-24 pb-24 lg:gap-20">
+    <main className="relative flex flex-col gap-24 pb-24 lg:gap-40">
       <HeroCarrousel />
       <AboutSection />
 
