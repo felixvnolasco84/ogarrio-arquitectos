@@ -4,4 +4,23 @@ const MazzardL_Light = localFont({ src: "../fonts/MazzardL-Light.ttf" });
 const MazzardL_Medium = localFont({ src: "../fonts/MazzardL-Medium.ttf" });
 const MazzardM_Medium = localFont({ src: "../fonts/MazzardM-Medium.ttf" });
 
-export { MazzardL_Light, MazzardL_Medium, MazzardM_Medium };
+const KlarheitMedium = localFont({
+  src: "../fonts/ESKlarheitGrotesk-Md-TRIAL.otf",
+});
+
+const KlarheitLight = localFont({
+  src: "../fonts/ESKlarheitGrotesk-Lt-TRIAL.otf",
+});
+
+const KlarheitExtraLight = localFont({
+  src: "../fonts/ESKlarheitGrotesk-Xlt-TRIAL.otf",
+});
+
+export {
+  MazzardL_Light,
+  MazzardL_Medium,
+  MazzardM_Medium,
+  KlarheitMedium,
+  KlarheitLight,
+  KlarheitExtraLight,
+};

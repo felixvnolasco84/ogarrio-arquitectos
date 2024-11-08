@@ -1,45 +1,90 @@
 "use server";
 
-import * as z from "zod";
 import { Resend } from "resend";
-// import EmailTemplateResend from "@/emails";
+import ContactFormEmail from "@/emails/emails/contact-form-email";
+import SimpleContactEmail from "@/emails/emails/simple-contact-email";
+import SimpleContactOnlyEmail from "@/emails/emails/simple-contact-only-email";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+export async function addEntry(data: any) {
+  const result = data;
 
-// export async function sendContactEmail(data: z.infer<typeof FormSchema>) {
-//   const {
-//     name,
-//     email,
-//     phoneNumber,
-//     dateEvent: DATESYM,
-//     venue,
-//     eventDescription,
-//   } = data;
+  if (result.success) {
+    return { success: true, data: result.data };
+  }
 
-//   let dateEvent = new Date(DATESYM).toLocaleDateString("es-MX", {
-//     year: "numeric",
-//     month: "long",
-//     day: "numeric",
-//   });
+  if (result.error) {
+    return { success: false, error: result.error.format() };
+  }
+}
 
-//   try {
-//     const data = await resend.emails.send({
-//       from: "Grupo Amphitryon <felipe@amphitryon.mx>",
-//       to: [email],
-//       cc: ["ines@amphitryon.mx", "felipe@amphitryon.mx"],
-//       subject: "Nuevo Contacto | Amphitryon",
-//       react: EmailTemplateResend({
-//         name,
-//         email,
-//         phoneNumber,
-//         dateEvent,
-//         venue,
-//         eventDescription,
-//       }),
-//     });
-//     return { success: true, data };
-//   } catch (error) {
-//     console.log(error);
-//     return { success: false, error };
-//   }
-// }
+const resend = new Resend("re_ePzVq4ct_4QsSXaQaFKERseFC1p6rA6Bg");
+
+export async function sendEmail(data: any) {
+  const { name, email, phoneNumber, service, project, budget, interest } = data;
+  try {
+    const data = await resend.emails.send({
+      from: "rodrigo@ogc.mx",
+      to: ["rodrigo@ogc.mx", email],
+      subject: "New Contact",
+      react: ContactFormEmail({
+        name,
+        email,
+        phoneNumber,
+        service,
+        project,
+        budget,
+        interest,
+      }),
+    });
+    return { success: true, data };
+  } catch (error) {
+    return { success: false, error };
+  }
+
+  // if (result.error) {
+  //   return { success: false, error: result.error.format() };
+  // }
+}
+
+export async function sendContactEmail(data: any) {
+  const { name, email, phoneNumber } = data;
+  try {
+    const data = await resend.emails.send({
+      from: "rodrigo@ogc.mx",
+      to: ["rodrigo@ogc.mx", email],
+      subject: "New Contact",
+      react: SimpleContactEmail({
+        name,
+        email,
+      }),
+    });
+    return { success: true, data };
+  } catch (error) {
+    return { success: false, error };
+  }
+
+  // if (result.error) {
+  //   return { success: false, error: result.error.format() };
+  // }
+}
+
+export async function sendContactOnlyEmail(data: any) {
+  const { email } = data;
+  try {
+    const data = await resend.emails.send({
+      from: "rodrigo@ogc.mx",
+      to: ["rodrigo@ogc.mx", email],
+      subject: "New Contact",
+      react: SimpleContactOnlyEmail({
+        email,
+      }),
+    });
+    return { success: true, data };
+  } catch (error) {
+    return { success: false, error };
+  }
+
+  // if (result.error) {
+  //   return { success: false, error: result.error.format() };
+  // }
+}
