@@ -1,7 +1,7 @@
 export default function AboutSection() {
   return (
     // <div className="grid items-center justify-start gap-4 px-4 lg:grid-cols-2 lg:items-start lg:justify-between lg:gap-0 lg:px-12 2xl:py-24">
-    <div className="order-2 py-12 text-xl lg:order-1 lg:text-3xl"> 
+    <div className="order-2 py-12 text-xl lg:order-1 lg:text-2xl"> 
       <p>
         Every element is crafted in-house—from design and vision to construction
         and development—creating spaces that connect people, society, and the

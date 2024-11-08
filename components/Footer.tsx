@@ -25,28 +25,33 @@ export default function Footer() {
     //   </div>
     // </div>
 
-    <footer className="container rounded-lg bg-[#F7F7F7]">
-      <div className="bg-custom-gray text-custom-black grid rounded-lg shadow-sm">
-        <div className="container grid grid-cols-1 justify-between gap-6 py-12 lg:gap-12">
-          <div className="flex flex-col items-center gap-2 lg:items-start lg:gap-4">
-            <h3 className={cn("text-lg lg:text-3xl", KlarheitLight.className)}>
-              Contact Us Now
-            </h3>
-            <p className="w-full lg:w-1/2">
-              Schedule a consultation with our expert team today and let us help
-              you bring your dream project to life. Whether you’re planning a
-              luxury home or a commercial development, we’re here to guide you
-              every step of the way.
-            </p>
+    <footer className="container mb-4 rounded-lg shadow-sm">
+      <div className="text-custom-black grid rounded-lg bg-[#F7F7F7] px-12 py-16">
+        <div className="container grid grid-cols-1 justify-between gap-24 lg:gap-32">
+          <div className="grid gap-6 lg:gap-12">
+            <div className="flex flex-col items-center gap-2 lg:items-start lg:gap-4">
+              <h3
+                className={cn("text-lg lg:text-3xl", KlarheitLight.className)}
+              >
+                Contact Us Now
+              </h3>
+              <p className="w-full max-w-2xl text-xl">
+                Schedule a consultation with our expert team today and let us
+                help you bring your dream project to life. Whether you’re
+                planning a luxury home or a commercial development, we’re here
+                to guide you every step of the way.
+              </p>
+            </div>
+            <FooterContactForm />
           </div>
-          <FooterContactForm />
+
           {/* <Dialog>
             <ContactForm />
           </Dialog> */}
 
           <div className="flex w-full flex-col items-start gap-4 lg:text-base xl:text-lg">
             <Link href={"/"}>
-              <Image alt="image of Amphitryon logo" src={Logo} width={160} />
+              <Image alt="image of Amphitryon logo" src={Logo} width={210} />
             </Link>
             <p className="text-sm">
               Cda de Loma Bonita 33, Cuarto Piso, Col. Lomas Altas, Miguel

@@ -121,7 +121,7 @@ export function ProjectCarrouselComponent({
   // }, [autoplay, api, count]);
 
   return (
-    <div className="relative col-span-6 overflow-hidden rounded-lg shadow-sm">
+    <div className="relative col-span-6 overflow-hidden rounded-2xl shadow-sm">
       <Carousel setApi={setApi}>
       {/* <Carousel> */}
         <CarouselContent className="">

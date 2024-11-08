@@ -76,8 +76,8 @@ export function FooterContactForm() {
                 <FormItem className="space-y-0 rounded-md bg-[#DEDEDE] shadow-sm">
                   <FormControl>
                     <Input
-                      placeholder="Nombre"
-                      className={`resize-none bg-transparent px-3 py-2 text-base placeholder:text-sm lg:text-lg placeholder:${KlarheitExtraLight.className} ring-offset-0 ring-offset-transparent focus-visible:ring-transparent`}
+                      placeholder="Name"
+                      className={`resize-none bg-transparent px-6 py-2.5 text-base placeholder:text-sm lg:text-base placeholder:${KlarheitExtraLight.className} ring-offset-0 ring-offset-transparent focus-visible:ring-transparent placerholcer:text-[#888888]`}
                       disabled={isLoading}
                       {...field}
                     ></Input>
@@ -93,8 +93,8 @@ export function FooterContactForm() {
                 <FormItem className="space-y-0 rounded-md bg-[#DEDEDE] shadow-sm">
                   <FormControl>
                     <Input
-                      placeholder="Correo"
-                      className={`resize-none bg-transparent px-3 py-2 text-base placeholder:text-sm lg:text-lg placeholder:${KlarheitExtraLight.className} ring-offset-0 ring-offset-transparent focus-visible:ring-transparent`}
+                      placeholder="Email"
+                      className={`resize-none bg-transparent px-6 py-2.5 text-base placeholder:text-sm lg:text-base placeholder:${KlarheitExtraLight.className} ring-offset-0 ring-offset-transparent focus-visible:ring-transparent placerholcer:text-[#888888]`}
                       disabled={isLoading}
                       {...field}
                     ></Input>
@@ -107,7 +107,7 @@ export function FooterContactForm() {
 
           <Button
             type="submit"
-            className="h-fit w-full bg-black hover:bg-transparent lg:w-fit"
+            className="h-fit w-full bg-black px-10 py-2.5 hover:bg-black/80 lg:w-fit"
             disabled={isLoading}
           >
             {isLoading ? <Loader2 className="h-6 w-6" /> : "Send"}

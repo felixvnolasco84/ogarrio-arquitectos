@@ -112,7 +112,7 @@ export type ProjectShowcase = {
 export const projects: ProjectShowcase[] = [
   {
     title: "Amatepec",
-    description: "CHK Arquitectura",
+    description: "",
     carrousel: [Amatepec1, Amatepec2, Amatepec3],
   },
   {
@@ -129,7 +129,7 @@ export const projects: ProjectShowcase[] = [
   },
   {
     title: "Casa Escota",
-    description: "CHK Arquitectura",
+    description: "",
     carrousel: [CasaEscota1, CasaEscota2, CasaEscota3, CasaEscota4],
   },
   {
@@ -148,7 +148,7 @@ export const projects: ProjectShowcase[] = [
   },
   {
     title: "Casa OL",
-    description: "CHK Arquitectura",
+    description: "",
     carrousel: [CasaOL1, CasaOL2, CasaOL3, CasaOL4],
   },
   {
@@ -158,7 +158,7 @@ export const projects: ProjectShowcase[] = [
   },
   {
     title: "LA260 y LA207",
-    description: "CHK Arquitectura",
+    description: "",
     carrousel: [LA2601, LA2602, LA2603, LA2604],
   },
   {
@@ -168,7 +168,7 @@ export const projects: ProjectShowcase[] = [
   },
   {
     title: "Playa Blanca",
-    description: "CHK Arquitectura",
+    description: "",
     carrousel: [PlayaBlanca1, PlayaBlanca2, PlayaBlanca3, PlayaBlanca4],
   },
   {
@@ -194,7 +194,7 @@ export const projects: ProjectShowcase[] = [
   },
   {
     title: "SV C3",
-    description: "CHK Arquitectura",
+    description: "",
     carrousel: [SV1, SV2, SV3, SV4],
   },
 ];

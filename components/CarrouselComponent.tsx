@@ -121,35 +121,35 @@ export function CarrouselComponent() {
   }, [autoplay, api, count]);
 
   return (
-    <div className="relative order-1 col-span-6 overflow-hidden rounded-lg shadow-sm lg:order-2">
+    <div className="relative order-1 col-span-12 overflow-hidden rounded-2xl shadow-sm lg:order-2 lg:col-span-7">
       <Carousel setApi={setApi}>
         <CarouselContent className="">
           <CarouselItem>
             <Image
               src={Home1}
               alt=""
-              className="aspect-[4/6] w-full rounded-lg object-cover object-center lg:aspect-square"
+              className="aspect-[4/6] w-full object-cover object-center lg:aspect-square"
             />
           </CarouselItem>
           <CarouselItem>
             <Image
               src={Home2}
               alt=""
-              className="aspect-[4/6] w-full rounded-lg object-cover object-center lg:aspect-square"
+              className="aspect-[4/6] w-full object-cover object-center lg:aspect-square"
             />
           </CarouselItem>
           <CarouselItem>
             <Image
               src={Home3}
               alt=""
-              className="aspect-[4/6] w-full rounded-lg object-cover object-center lg:aspect-square"
+              className="aspect-[4/6] w-full object-cover object-center lg:aspect-square"
             />
           </CarouselItem>
           <CarouselItem>
             <Image
               src={Home4}
               alt=""
-              className="aspect-[4/6] w-full rounded-lg object-cover object-center lg:aspect-square"
+              className="aspect-[4/6] w-full object-cover object-center lg:aspect-square"
             />
           </CarouselItem>
         </CarouselContent>
