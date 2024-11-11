@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/next-script-for-ga */
 // import { WithContext, Organization } from "schema-dts";
 import "./globals.css";
-import { MazzardL_Light } from "@/utils/fonts";
+import { MazzardM_Light } from "@/utils/fonts";
 import { ConvexClientProvider } from "@/providers/convex-provider";
 import { Toaster } from "sonner";
 import { ModalProvider } from "./providers/modalProvider";
@@ -44,7 +44,7 @@ export default function RootLayout({
       <head>
         <meta name="robots" content="index, follow" />
       </head>
-      <body className={`${MazzardL_Light.className}`}>
+      <body className={`${MazzardM_Light.className}`}>
         <ConvexClientProvider>
           <div id="root">
             {/* <BreadCrumb

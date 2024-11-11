@@ -24,10 +24,9 @@ export const EmailTemplateResend = ({ email, name }: any) => (
     <Body style={main}>
       <Container style={container}>
         <Img
-          src={"https://www.ogc.mx/Logo.png"}
-          width="40"
-          height="40"
-          alt="OGC Logo"
+          src={"https://www.ogarrioarquitectos.com/images/Logo_Black_Text.png"}
+          width="210"
+          alt="Ogarrio Logo"
         />
 
         <Text style={title}>
@@ -43,7 +42,7 @@ export const EmailTemplateResend = ({ email, name }: any) => (
           <Text style={text}>Name: {name}</Text>
           <Text style={text}>Email: {email}</Text>
 
-          <Button href="https://www.ogc.mx/" style={button}>
+          <Button href="https://www.ogarrioarquitectos.com/" style={button}>
             View Website
           </Button>
         </Section>

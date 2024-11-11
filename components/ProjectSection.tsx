@@ -2,9 +2,8 @@ import Image from "next/image";
 import React from "react";
 import { ProjectShowcase } from "@/lib/utils";
 import {
-  MazzardL_Medium,
   MazzardM_Medium,
-  MazzardL_Light,
+  MazzardM_Light
 } from "@/utils/fonts";
 import { Card, CardDescription, CardFooter, CardHeader } from "./ui/card";
 import CardTitle from "./CardTitle";
@@ -26,7 +25,7 @@ export default function ProjectSection({
               title={project.title}
             />
             <CardDescription
-              className={`${MazzardL_Light.className} text-xl font-normal text-[#7C7C7C]`}
+              className={`${MazzardM_Light.className} text-xl font-normal text-[#7C7C7C]`}
             >
               {project.description}
             </CardDescription>

@@ -24,7 +24,8 @@ export async function sendEmail(data: any) {
   try {
     const data = await resend.emails.send({
       from: "rodrigo@ogc.mx",
-      to: ["rodrigo@ogc.mx", email],
+      to: [email],
+      cc: ["rodrigo@ogc.mx"],
       subject: "New Contact",
       react: ContactFormEmail({
         name,
@@ -51,7 +52,8 @@ export async function sendContactEmail(data: any) {
   try {
     const data = await resend.emails.send({
       from: "rodrigo@ogc.mx",
-      to: ["rodrigo@ogc.mx", email],
+      to: [email],
+      cc: ["rodrigo@ogc.mx"],
       subject: "New Contact",
       react: SimpleContactEmail({
         name,
@@ -73,7 +75,8 @@ export async function sendContactOnlyEmail(data: any) {
   try {
     const data = await resend.emails.send({
       from: "rodrigo@ogc.mx",
-      to: ["rodrigo@ogc.mx", email],
+      to: [email],
+      cc: ["rodrigo@ogc.mx"],
       subject: "New Contact",
       react: SimpleContactOnlyEmail({
         email,

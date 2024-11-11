@@ -15,8 +15,9 @@ import React, { useState } from "react";
 import { Loader2 } from "lucide-react";
 import { sendContactEmail } from "@/app/_actions";
 import { Input } from "@/components/ui/input";
-import { KlarheitExtraLight } from "@/utils/fonts";
+import { MazzardM_Regular } from "@/utils/fonts";
 import { toast } from "sonner";
+import { cn } from "@/lib/utils";
 
 export const FormSchema = z.object({
   name: z
@@ -77,7 +78,7 @@ export function FooterContactForm() {
                   <FormControl>
                     <Input
                       placeholder="Name"
-                      className={`resize-none bg-transparent px-6 py-2.5 text-base placeholder:text-sm lg:text-base placeholder:${KlarheitExtraLight.className} ring-offset-0 ring-offset-transparent focus-visible:ring-transparent placerholcer:text-[#888888]`}
+                      className={`resize-none bg-transparent px-6 py-2.5 text-base placeholder:text-sm lg:text-base placeholder:${MazzardM_Regular.className} ring-offset-0 ring-offset-transparent focus-visible:ring-transparent placerholcer:text-[#888888]`}
                       disabled={isLoading}
                       {...field}
                     ></Input>
@@ -94,7 +95,7 @@ export function FooterContactForm() {
                   <FormControl>
                     <Input
                       placeholder="Email"
-                      className={`resize-none bg-transparent px-6 py-2.5 text-base placeholder:text-sm lg:text-base placeholder:${KlarheitExtraLight.className} ring-offset-0 ring-offset-transparent focus-visible:ring-transparent placerholcer:text-[#888888]`}
+                      className={`resize-none bg-transparent px-6 py-2.5 text-base placeholder:text-sm lg:text-base placeholder:${MazzardM_Regular.className} ring-offset-0 ring-offset-transparent focus-visible:ring-transparent placerholcer:text-[#888888]`}
                       disabled={isLoading}
                       {...field}
                     ></Input>
@@ -107,7 +108,10 @@ export function FooterContactForm() {
 
           <Button
             type="submit"
-            className="h-fit w-full bg-black px-10 py-2.5 hover:bg-black/80 lg:w-fit"
+            className={cn(
+              MazzardM_Regular.className,
+              "h-fit w-full bg-black px-10 py-2.5 hover:bg-black/80 lg:w-fit"
+            )}
             disabled={isLoading}
           >
             {isLoading ? <Loader2 className="h-6 w-6" /> : "Send"}

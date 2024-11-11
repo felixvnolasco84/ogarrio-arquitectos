@@ -2,7 +2,7 @@ import Link from "next/link";
 import Logo from "@/public/images/Logo_Black_Text.png";
 // import ContactButton from "./ContactButton";
 import { cn } from "@/lib/utils";
-import { KlarheitLight } from "@/utils/fonts";
+import { MazzardM_Regular, MazzardL_Light } from "@/utils/fonts";
 import ContactForm from "./Forms/ContactForm";
 import Image from "next/image";
 import { Dialog } from "./ui/dialog";
@@ -31,7 +31,10 @@ export default function Footer() {
           <div className="grid gap-6 lg:gap-12">
             <div className="flex flex-col items-center gap-2 lg:items-start lg:gap-4">
               <h3
-                className={cn("text-lg lg:text-3xl", KlarheitLight.className)}
+                className={cn(
+                  "text-lg lg:text-3xl",
+                  MazzardM_Regular.className
+                )}
               >
                 Contact Us Now
               </h3>
@@ -53,7 +56,7 @@ export default function Footer() {
             <Link href={"/"}>
               <Image alt="image of Amphitryon logo" src={Logo} width={210} />
             </Link>
-            <p className="text-sm">
+            <p className={cn(MazzardL_Light.className )}>
               Cda de Loma Bonita 33, Cuarto Piso, Col. Lomas Altas, Miguel
               Hidalgo CDMX 11950, México
             </p>
