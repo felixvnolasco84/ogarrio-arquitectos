@@ -61,7 +61,7 @@ export const SimpleContactOnlyEmail = ({
           </Link>
         </Text> */}
 
-        <Text style={footer}>OGC</Text>
+        <Text style={footer}>OGARRIO ARQUITECTOS</Text>
       </Container>
     </Body>
   </Html>

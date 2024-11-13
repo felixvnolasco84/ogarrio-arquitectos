@@ -1,6 +1,8 @@
 import { cn } from "@/lib/utils";
 import { CarrouselComponent } from "./CarrouselComponent";
 import { MazzardM_SemiBold } from "@/utils/fonts";
+import Logo from '@/public/images/Logo_Black_Text.png'
+import Image from "next/image";
 
 export default function HeroSection() {
   return (
@@ -8,7 +10,7 @@ export default function HeroSection() {
       <div className="order-2 col-span-12 grid gap-y-4 pt-4 lg:order-1 lg:col-span-5">
         <h1
           className={cn(
-            "h-fit text-3xl font-bold",
+            "h-fit text-3xl 2xl:text-4xl font-bold",
             MazzardM_SemiBold.className
           )}
         >
