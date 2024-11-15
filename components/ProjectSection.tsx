@@ -21,11 +21,11 @@ export default function ProjectSection({
           <ProjectCarrouselComponent images={project.carrousel} />
           <CardHeader className="space-y-0 pl-0">
             <CardTitle
-              className={`${MazzardM_Medium.className} text-2xl font-normal`}
+              className={`${MazzardM_Medium.className} font-normal`}
               title={project.title}
             />
             <CardDescription
-              className={`${MazzardM_Light.className} text-xl font-normal text-[#7C7C7C]`}
+              className={`${MazzardM_Light.className}  font-normal text-[#7C7C7C]`}
             >
               {project.description}
             </CardDescription>

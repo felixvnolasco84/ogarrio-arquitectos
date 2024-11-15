@@ -7,5 +7,5 @@ export default function CardTitle({
   title: string;
   className?: string;
 }) {
-  return <h2 className={cn("font-bold text-2xl xl:text-3xl", className)}>{title}</h2>;
+  return <h2 className={cn("font-bold text-2xl xl:text-[28px]", className)}>{title}</h2>;
 }
