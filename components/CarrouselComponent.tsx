@@ -126,6 +126,7 @@ export function CarrouselComponent() {
         <CarouselContent className="">
           <CarouselItem>
             <Image
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               src={Home1}
               alt=""
               className="aspect-[4/6] w-full object-cover object-center lg:aspect-square"
@@ -133,6 +134,7 @@ export function CarrouselComponent() {
           </CarouselItem>
           <CarouselItem>
             <Image
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               src={Home2}
               alt=""
               className="aspect-[4/6] w-full object-cover object-center lg:aspect-square"
@@ -140,6 +142,7 @@ export function CarrouselComponent() {
           </CarouselItem>
           <CarouselItem>
             <Image
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               src={Home3}
               alt=""
               className="aspect-[4/6] w-full object-cover object-center lg:aspect-square"
@@ -147,6 +150,7 @@ export function CarrouselComponent() {
           </CarouselItem>
           <CarouselItem>
             <Image
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               src={Home4}
               alt=""
               className="aspect-[4/6] w-full object-cover object-center lg:aspect-square"

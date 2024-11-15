@@ -123,13 +123,14 @@ export function ProjectCarrouselComponent({
   return (
     <div className="relative col-span-6 overflow-hidden rounded-2xl shadow-sm">
       <Carousel setApi={setApi}>
-      {/* <Carousel> */}
+        {/* <Carousel> */}
         <CarouselContent className="">
           {images.map((image, index) => (
-            <CarouselItem key={index} >
+            <CarouselItem key={index}>
               <Image
                 src={image}
                 alt=""
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="aspect-[3/4] w-full object-cover object-center lg:aspect-[3/2]"
               />
             </CarouselItem>
