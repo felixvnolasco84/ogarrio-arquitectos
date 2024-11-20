@@ -7,20 +7,23 @@ export default defineSchema({
   }),
 
   project: defineTable({
-    name: v.string(),
-    slug: v.string(),
-    location: v.string(),
-    service: v.string(),
-    product: v.string(),
-    extraData: v.string(),
-    category: v.string(),
-    description: v.string(),
-    heroImage: v.string(),
-    gallery: v.array(v.string()),
-    metaTitle: v.string(),
-    metaDescription: v.string(),
+    title: v.string(),
+    subtitle: v.string(),
+    location: v.optional(v.string()),
+    category: v.optional(v.string()),
   })
-    .index("by_slug", ["slug"])
+    .searchIndex("search_name", {
+      searchField: "title",
+      // filterFields:
+
+      // filterFields: ["name"]
+    })
+    .index("by_name", ["title"])
     .index("by_category", ["category"])
-    .index("by_category_slug", ["category", "slug"]),
+    .index("by_category_title", ["category", "title"]),
+
+  image: defineTable({
+    url: v.string(),
+    project: v.id("project"),
+  }).index("by_projecId", ["project"]),
 });

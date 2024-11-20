@@ -12,6 +12,7 @@ export default function HeroSection() {
           src={Logo}
           alt="Logo"
           width={382}
+          loading="eager"
         />
         <Image
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -19,6 +20,7 @@ export default function HeroSection() {
           src={Logo}
           alt="Logo"
           width={225}
+          loading="eager"
         />
         <p className="text-xl lg:max-w-lg lg:text-[22px] 2xl:text-2xl">
           We are a family-owned arquitecture firm based in México City. Since

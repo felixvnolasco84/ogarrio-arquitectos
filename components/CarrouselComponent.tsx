@@ -1,10 +1,11 @@
 "use client";
 
+import Autoplay from "embla-carousel-autoplay";
 import { type CarouselApi } from "@/components/ui/carousel";
-import Home1 from '@/public/images/Portadas Home/Portadas Home (1).png'
-import Home2 from '@/public/images/Portadas Home/Portadas Home (2).png'
-import Home3 from '@/public/images/Portadas Home/Portadas Home (3).png'
-import Home4 from '@/public/images/Portadas Home/Portadas Home (4).png'
+import Home1 from "@/public/images/Portadas Home/Portadas Home (1).png";
+import Home2 from "@/public/images/Portadas Home/Portadas Home (2).png";
+import Home3 from "@/public/images/Portadas Home/Portadas Home (3).png";
+import Home4 from "@/public/images/Portadas Home/Portadas Home (4).png";
 import PG from "@/public/images/PG.png";
 
 import {
@@ -37,7 +38,7 @@ const PositionIndicator: React.FC<PositionIndicatorProps> = ({
             api?.scrollTo(index);
           }}
           className={`w-full h-1 mx-1 rounded-full ${
-            index < current ? "bg-white/50" : "bg-white/50"
+            index < current ? "bg-white" : "bg-white/50"
           }`}
           key={index}
           value={progress[index]}
@@ -46,15 +47,13 @@ const PositionIndicator: React.FC<PositionIndicatorProps> = ({
     </div>
   );
 };
-
 export function CarrouselComponent() {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
+  const [progress, setProgress] = useState<number[]>([]);
   const [autoplay, setAutoplay] = useState(true);
   const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
-  const [progress, setProgress] = useState<number[]>([]);
-
   useEffect(() => {
     if (!api) {
       return;
@@ -122,13 +121,21 @@ export function CarrouselComponent() {
 
   return (
     <div className="relative order-1 col-span-12 overflow-hidden rounded-2xl shadow-sm lg:order-2 lg:col-span-7">
-      <Carousel setApi={setApi}>
+      <Carousel
+        setApi={setApi}
+        // plugins={[
+        //   Autoplay({
+        //     delay: 2000,
+        //   }),
+        // ]}
+      >
         <CarouselContent className="">
           <CarouselItem>
             <Image
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               src={Home1}
               alt=""
+              loading="eager"
               className="aspect-[4/6] w-full object-cover object-center lg:aspect-square"
             />
           </CarouselItem>
@@ -137,6 +144,7 @@ export function CarrouselComponent() {
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               src={Home2}
               alt=""
+              loading="eager"
               className="aspect-[4/6] w-full object-cover object-center lg:aspect-square"
             />
           </CarouselItem>
@@ -145,6 +153,7 @@ export function CarrouselComponent() {
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               src={Home3}
               alt=""
+              loading="eager"
               className="aspect-[4/6] w-full object-cover object-center lg:aspect-square"
             />
           </CarouselItem>
@@ -153,6 +162,7 @@ export function CarrouselComponent() {
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               src={Home4}
               alt=""
+              loading="eager"
               className="aspect-[4/6] w-full object-cover object-center lg:aspect-square"
             />
           </CarouselItem>

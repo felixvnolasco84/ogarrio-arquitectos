@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/next-script-for-ga */
+
 // import { WithContext, Organization } from "schema-dts";
 import "./globals.css";
 import { MazzardM_Light } from "@/utils/fonts";

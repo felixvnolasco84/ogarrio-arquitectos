@@ -4,20 +4,14 @@ import { mutation, query } from "./_generated/server";
 import { Doc, Id } from "./_generated/dataModel";
 
 export const create = mutation({
-  args: {},
-  handler: async (ctx) => {
-    const lastContact = await ctx.db
-      .query("WhatsAppContact")
-      .order("desc")
-      .first();
-    const message = "Hola, me gustaría recibir más informes.";
-    if (lastContact?.receivedBy === "Cesar") {
-      await ctx.db.insert("WhatsAppContact", { receivedBy: "Anton" });
-      return `https://wa.me/5620244047?text=${encodeURIComponent(message)}`;
-    } else {
-      await ctx.db.insert("WhatsAppContact", { receivedBy: "Cesar" });
-      return `https://wa.me/5513842959?text=${encodeURIComponent(message)}`;
-    }
+  args: {
+    title: v.string(),
+    subtitle: v.string(),
+    location: v.optional(v.string()),
+    category: v.optional(v.string()),
+  },
+  handler: async (ctx, args) => {
+    const project = await ctx.db.insert("project", args);
   },
 });
 
@@ -27,18 +21,6 @@ export const getById = query({
     const projects = await ctx.db
       .query("project")
       .withIndex("by_id", (q) => q.eq("_id", args.projectId))
-      .first();
-
-    return projects;
-  },
-});
-
-export const getBySlug = query({
-  args: { slug: v.string() },
-  handler: async (ctx, args) => {
-    const projects = await ctx.db
-      .query("project")
-      .withIndex("by_slug", (q) => q.eq("slug", args.slug))
       .first();
 
     return projects;
@@ -58,9 +40,15 @@ export const getByCategory = query({
 });
 
 export const getAll = query({
-  args: {},
-  handler: async (ctx) => {
+  args: {
+    category: v.optional(v.string()),
+  },
+  handler: async (ctx, args) => {
     const projects = await ctx.db.query("project").collect();
+
+    if (args.category && args.category !== "todos") {
+      return projects.filter((project) => project.category === args.category);
+    }
 
     return projects;
   },
@@ -68,13 +56,41 @@ export const getAll = query({
 
 //TODO:EXCLUDE CURRENT PROJECT
 export const recommendedProjects = query({
-  args: { currentProjectSlug: v.string(), category: v.string() },
+  args: { currentProjectId: v.id("project"), category: v.string() },
   handler: async (ctx, args) => {
     const projects = await ctx.db
       .query("project")
       .withIndex("by_category", (q) => q.eq("category", args.category))
       .collect();
-      
-    return projects.filter((project) => project.slug !== args.currentProjectSlug);
+
+    return projects.filter((project) => project._id !== args.currentProjectId);
   },
 });
+
+// export const updateProject = mutation({
+//   args: {
+//     projectName: v.string(),
+//     h2Title: v.optional(v.string()),
+//     h2text: v.optional(v.string()),
+//     h3title: v.optional(v.string()),
+//     h3text: v.optional(v.string()),
+//   },
+//   handler: async (ctx, args) => {
+//     const { projectName, ...rest } = args;
+
+//     const project = await ctx.db
+//       .query("project")
+//       .withIndex("by_name", (q) => q.eq("title", args.projectName))
+//       .first();
+
+//     if (!project) {
+//       throw new Error("Project not found");
+//     }
+
+//     const projectResponse = await ctx.db.patch(project._id, {
+//       ...rest,
+//     });
+
+//     return projectResponse;
+//   },
+// });

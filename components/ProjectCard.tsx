@@ -8,7 +8,7 @@ import { Badge } from "./ui/badge";
 export default function ProjectCard({ project }: { project: Doc<"project"> }) {
   return (
     <Link href={`/${project.category}/${project._id}`}>
-      <Card className="flex flex-col gap-4 overflow-hidden rounded-lg border-2 border-gray-200 transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg">
+      {/* <Card className="flex flex-col gap-4 overflow-hidden rounded-lg border-2 border-gray-200 transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg">
         <CardHeader className="p-0">
           <div className="h-64 w-full overflow-hidden">
             <Image
@@ -32,7 +32,7 @@ export default function ProjectCard({ project }: { project: Doc<"project"> }) {
             <p className="text-sm text-gray-600">{project.description}</p>
           </div>
         </CardContent>
-      </Card>
+      </Card> */}
     </Link>
   );
 }
