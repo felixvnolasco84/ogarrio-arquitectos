@@ -105,7 +105,7 @@ export function ProjectCarrouselComponent({
           }
           return newProgress;
         });
-      }, 20); // Incrementa el progreso cada 50ms (5 segundos para llegar a 100)
+      }, 30); // Incrementa el progreso cada 50ms (5 segundos para llegar a 100)
       setIntervalId(id);
     } else if (intervalId) {
       clearInterval(intervalId);
